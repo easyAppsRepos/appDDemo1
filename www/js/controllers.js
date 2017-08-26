@@ -31,7 +31,17 @@ $scope.atras= function(){
 
 
 
-  
+  $scope.openPage = function(link){
+
+  if(link == null || link == 'null' || link == 'undefinded'){console.log('nolink')}
+
+  else{
+      window.open(link, '_system', 'location=yes'); return false;
+
+  }  
+}
+
+
 
 
     
@@ -71,6 +81,18 @@ $scope.atras= function(){
 .controller('PlaylistsCtrl', ['$scope', '$ionicModal', '$ionicLoading', 'ArticlesService',
   function($scope, $ionicModal, $ionicLoading, ArticlesService) {
 
+
+
+
+$scope.openPage = function(link){
+
+  if(link == null || link == 'null' || link == 'undefinded'){console.log('nolink')}
+
+  else{
+      window.open(link, '_system', 'location=yes'); return false;
+
+  }  
+}
 
 
     

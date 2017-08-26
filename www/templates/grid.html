@@ -21,10 +21,13 @@
    
   <div id="theGrid" class="main" back-to-grid>
     <section class="grid">
-      <a ui-sref="app.article({articleId: article.articleId})" grid-item class="grid__item" ng-repeat="article in articles">
+      <a ui-sref="app.article({articleId: article.articleId})" ng-click='disableTouch()' grid-item class="grid__item" ng-repeat="article in articles">
         <span style='font-family: RobotoC !important' class="title title--preview">{{article.title}}</span>
         <div class="loader"></div>
-        <span class="category" style='font-family: RobotoL !important'>{{article.category}}</span>
+
+        <span class="category" style='font-family: RobotoL '>{{article.category}}</span>
+
+
         <div class="meta meta--preview" style="    margin-top: 10px;">
          <!--  <img class="meta__avatar" ng-src="{{article.author}}" alt="author04" />  -->
           <span class="meta__date"><i class="fa fa-calendar-o"></i>{{article.date}}</span>

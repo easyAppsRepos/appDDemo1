@@ -1,6 +1,6 @@
 angular.module('animatedGrid.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicSlideBoxDelegate) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $ionicSlideBoxDelegate) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -8,6 +8,8 @@ angular.module('animatedGrid.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  $ionicLoading.hide();
 
 $scope.atras= function(){
 
@@ -66,8 +68,18 @@ $scope.atras= function(){
   };
 })
 
-.controller('PlaylistsCtrl', ['$scope', '$ionicModal', 'ArticlesService',
-  function($scope, $ionicModal, ArticlesService) {
+.controller('PlaylistsCtrl', ['$scope', '$ionicModal', '$ionicLoading', 'ArticlesService',
+  function($scope, $ionicModal, $ionicLoading, ArticlesService) {
+
+
+
+    
+$scope.disableTouch = function() {
+  console.log('d');
+  $ionicLoading.show();
+
+}
+
     $scope.getArticleList = function() {
 
       var promise = ArticlesService.get();

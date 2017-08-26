@@ -6,6 +6,31 @@ ion-slide:nth-child(2n) {
     background-color: #fdfdfd;
 }
 
+.grid__item:nth-child(1){
+    background-color: lightcoral;   
+    color: white;
+}
+
+.grid__item:nth-child(1) .category{
+    background-color: lightcoral;   
+    color: white;
+    font-family: RobotoBlack !important;
+}
+.grid__item:nth-child(1) .loader{
+    background-color: white;   
+
+}
+
+.grid__item:nth-child(1) .meta__date{
+ display:none;
+}
+
+.grid__item:nth-child(1) .meta__reading-time{
+   display:none;
+}
+
+
+
 .slider {
     height: 100%;
 }

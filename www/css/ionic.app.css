@@ -3879,7 +3879,14 @@ a.subdued {
   z-index: 11;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+
+
+/*  background-color: rgba(0, 0, 0, 0.4);
+change
+*/
+
+    background-color: rgba(0, 0, 0, 0.04);
+
   visibility: hidden;
   opacity: 0;
   -webkit-transition: 0.1s opacity linear;
@@ -5663,7 +5670,8 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .loading-container .loading {
     padding: 20px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
+/*    background-color: rgba(0, 0, 0, 0.7);
+change*/
     color: #fff;
     text-align: center;
     text-overflow: ellipsis;

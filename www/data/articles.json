@@ -1,0 +1,56 @@
+[
+    {
+        "id" : 1,
+        "title": "Hablemos del “impuesto a Netflix”",
+        "category": "EDICION ESPECIAL",
+        "author": "img/authors/4.png",
+        "date": " 6 Apr",
+        "length": " 2min leer",
+        "articleId": "1"
+    },
+    {
+        "id" : 2,
+        "title": "Ronald Alfaro: los indecisos serán el grupo decisivo una vez más",
+        "category": "ENTREVISTA",
+        "author": "img/authors/2.png",
+        "date": " 7 Apr",
+        "length": " 2min leer",
+        "articleId": "2"
+    },
+    {
+        "id" : 3,
+        "title": "¿Por qué pelean La Nación y CRHoy y por qué es importante?",
+        "category": "AYER/HOY",
+        "author": "img/authors/3.png",
+        "date": " 6 Apr",
+        "length": " 2min leer",
+        "articleId": "1"
+    },
+    {
+        "id" : 4,
+        "title": "25.000 costarricenses a los que habría que tener más presentes",
+        "category": "AYER/HOY",
+        "author": "img/authors/4.png",
+        "date": " 6 Abr",
+        "length": " 2min leer",
+        "articleId": "2"
+    },
+    {
+        "id" : 5,
+        "title": "¿Por qué pelean La Nación y CRHoy y por qué es importante?",
+        "category": "AYER/HOY",
+        "author": "img/authors/3.png",
+        "date": " 6 Apr",
+        "length": " 2min leer",
+        "articleId": "1"
+    },
+    {
+        "id" : 6,
+        "title": "25.000 costarricenses a los que habría que tener más presentes",
+        "category": "AYER/HOY",
+        "author": "img/authors/4.png",
+        "date": " 6 Apr",
+        "length": " 2min leer",
+        "articleId": "2"
+    }
+]

@@ -5,12 +5,35 @@
 
 
 <ion-nav-title>
-    <span style='    font-family: RobotoBlack;' class="">24 DE AGOSTO</span>
+    <span style='    font-family: RobotoBlack;' class="">{{fecha.split("T")[0]}}</span>
 </ion-nav-title>
 
 
   <ion-content article-load  scroll='false' style='' > 
 
+
+<ion-slide-box ng-show='mostrar' slide-tabs-scrollable='false' show-pager="false" ion-slide-tabs>
+
+ 
+          <ion-slide ion-slide-tab-label="Canjeables"  ng-repeat="page in paginasArticulo"  ng-if='page !== "" '>
+
+          <div ng-bind-html="'<h2>'+page" class='lectura ffs'>
+
+          </div>
+
+
+</ion-slide>
+
+
+</ion-slide-box>
+
+
+
+<!-- 
+        <ion-slide-box slide-tabs-scrollable='false' show-pager="false" ion-slide-tabs>
+
+ 
+</ion-slide-box> -->
 <!--  
 
 <div ui-sref='app.playlists'  style="  z-index: 10;  width: 70px;
@@ -84,7 +107,19 @@
 
 
 
-        <ion-slide-box slide-tabs-scrollable='false' show-pager="false" ion-slide-tabs>
+<!--    
+        <ion-slide ng-show='page' ion-slide-tab-label="Historial" ng-repeat="page in paginasArticulo" >
+
+    
+
+    
+
+
+        </ion-slide>
+
+ -->
+
+        <!-- 
         <ion-slide ion-slide-tab-label="Canjeables">
 <div class='lectura' style="    position: absolute;
     top: 0;
@@ -180,10 +215,9 @@
 
 
 </div>
-        </ion-slide>
+        </ion-slide> -->
       
-    </ion-slide-box>
-
+ 
 <div style="    position: absolute;
     bottom: 0;
     width: 100%;

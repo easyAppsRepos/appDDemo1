@@ -28,7 +28,7 @@ $ionicConfigProvider.backButton.text('');
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    
   })
 
   .state('app.search', {
@@ -60,7 +60,7 @@ $ionicConfigProvider.backButton.text('');
   })
 
   .state('app.article', {
-    url: '/article/:articleId',
+    url: '/article/:id/:fecha',
     views: {
       'menuContent': {
         templateUrl: 'templates/article.html',

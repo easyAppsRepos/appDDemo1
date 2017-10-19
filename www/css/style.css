@@ -14,7 +14,28 @@
 	    color: white !important; 
 }
 
+.ggp{
 
+}
+.ffs{
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 49px);
+    padding: 20px;
+    font-family: RobotoL;
+    color: #333;
+    line-height: 1.6;
+}
+
+.ffs h2{
+    color: red;
+}
 .linkMedia{
 
 	    display: inline-block;

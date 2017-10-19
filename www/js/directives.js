@@ -63,6 +63,9 @@ angular.module('animatedGrid.directives', [])
     return {
     	require: '^^gridAnimationsBasis',
         link: function (scope, elem, attrs) {
+
+        	//console.log(elem);
+        	//console.log(scope.article.id);
         	var gridViewContainer = document.getElementById('grid-template');
 
 			angular.forEach(elem, function(item, pos) {
@@ -73,7 +76,8 @@ angular.module('animatedGrid.directives', [])
 							animateItem(item);
 							scope.$parent.animationFlag = true;
 							$timeout(function(){
-								$state.go('app.article');
+								//$state.go('app.article');
+								$state.go('app.article', {id:scope.article.id, fecha:scope.article.date});
 							}, 500);
 					}, 1000);
 				})

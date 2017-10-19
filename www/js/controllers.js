@@ -1,6 +1,6 @@
 angular.module('animatedGrid.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $ionicSlideBoxDelegate) {
+.controller('AppCtrl', function($scope, $ionicModal, $stateParams, $state, ArticlesService, $ionicLoading, $timeout, $ionicSlideBoxDelegate) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,14 +9,58 @@ angular.module('animatedGrid.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $ionicLoading.hide();
-
+  $scope.fecha=$stateParams.fecha;
 $scope.atras= function(){
 
   $ionicHistory.goBack();
 
 
 }
+  $scope.mostrar=false;
+ $scope.updateSlider = function () {
+
+            //or just return the function
+            
+             $ionicSlideBoxDelegate.update(); 
+             $scope.mostrar=true;
+        }
+
+
+$scope.asignarPaginas= function(datahtml){
+
+  //$ionicHistory.goBack();
+  var paginas=[];
+
+  //var ddt=datahtml.substring(datahtml.lastIndexOf("<h2>")+1,datahtml.lastIndexOf("\n"));
+  $scope.paginasArticulo =  datahtml.split("<h2>");
+  console.log(  $scope.paginasArticulo);
+
+
+}
+console.log($stateParams.id);
+ $scope.getPostById = function() {
+
+             var promise = ArticlesService.getSPost($stateParams.id);
+      promise.then(
+          function(datas){
+            console.log('post');
+            console.log(datas);
+            $scope.datas = datas;
+          $scope.asignarPaginas(datas.content.rendered);
+         // $ionicSlideBoxDelegate.update();
+         $scope.updateSlider();
+         $ionicLoading.hide();
+
+          },
+          function(reason){
+            alert('Failed: ' + reason);
+          }
+      );
+
+
+
+    }
+$scope.getPostById();
 
 
  $scope.slidePrevious = function() {
@@ -78,8 +122,45 @@ $scope.atras= function(){
   };
 })
 
-.controller('PlaylistsCtrl', ['$scope', '$ionicModal', '$ionicLoading', 'ArticlesService',
-  function($scope, $ionicModal, $ionicLoading, ArticlesService) {
+.controller('PlaylistsCtrl', ['$scope', '$ionicModal', '$ionicLoading', '$state', '$stateParams','ArticlesService',
+  function($scope, $ionicModal, $ionicLoading, $state, $stateParams, ArticlesService) {
+
+
+//console.log(  ArticlesService.getPosts().then(function(data){return 'ds'}));
+
+ $scope.getCategorias = function() {
+
+     /// var promise = ArticlesService.get();
+     var promise = ArticlesService.getCategory();
+      promise.then(
+          function(details){
+            console.log(details);
+            $scope.categorias = details;
+          },
+          function(reason){
+            alert('Failed: ' + reason);
+          }
+      );
+    };
+
+
+ $scope.getStringCategoria = function(id) {
+
+     /// var promise = ArticlesService.get();
+     var categoria='';
+
+     var lookup = {};
+for (var i = 0, len = $scope.categorias.length; i < len; i++) {
+   if( $scope.categorias[i].id == id ) {
+
+    categoria = $scope.categorias[i].name;
+    break;
+   } 
+}
+
+
+     return categoria;
+    };
 
 
 
@@ -100,13 +181,17 @@ $scope.disableTouch = function() {
   console.log('d');
   $ionicLoading.show();
 
+
 }
+
 
     $scope.getArticleList = function() {
 
-      var promise = ArticlesService.get();
+     /// var promise = ArticlesService.get();
+     var promise = ArticlesService.getPosts();
       promise.then(
           function(details){
+            console.log(details);
             $scope.articles = details;
           },
           function(reason){
@@ -115,7 +200,8 @@ $scope.disableTouch = function() {
       );
     };
 
-    $scope.getArticleList();
+      $scope.getArticleList();
+$scope.getCategorias();
 
     $scope.abrirInfo = function() {
 $scope.modal.show();

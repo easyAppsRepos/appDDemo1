@@ -4,17 +4,17 @@
         xmlns       =    "http://www.w3.org/ns/widgets"
         xmlns:gap   =    "http://phonegap.com/ns/1.0"
         versionCode =   "1">
-  <name>DelfinoApp</name>
+  <name>Delfino</name>
   <description>
-        DelfinoApp
+        Delfino
     </description>
   <author email="you@example.com" href="http://example.com.com/">
-      DelfinoApp
+      Delfino
     </author>
       <access origin="*"/>
   <content src="index.html"/>
 
-  <preference name="phonegap-version" value="cli-6.3.0" />
+  <preference name="phonegap-version" value="cli-7.0.1" />
   <preference name="orientation" value="portrait" />
   <preference name="webviewbounce" value="false"/>
 

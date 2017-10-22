@@ -243,6 +243,7 @@ $scope.disableTouch = function() {
           function(details){
             console.log(details);
             $scope.articles = details;
+            $ionicLoading.hide();
           },
           function(reason){
             alert('Failed: ' + reason);
@@ -250,7 +251,7 @@ $scope.disableTouch = function() {
 
       );
     };
-
+     $ionicLoading.show();
       $scope.getArticleList();
 $scope.getCategorias();
 

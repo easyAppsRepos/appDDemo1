@@ -7,6 +7,7 @@ angular.module('animatedGrid.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
+    // ui-sref="app.article({id: edition.id, fecha: edition.date})"
   //});
 
   $scope.fecha=$stateParams.fecha;
@@ -32,7 +33,13 @@ $scope.asignarPaginas= function(datahtml){
   var paginas=[];
 
   //var ddt=datahtml.substring(datahtml.lastIndexOf("<h2>")+1,datahtml.lastIndexOf("\n"));
-  $scope.paginasArticulo =  datahtml.split("<h2>");
+
+datahtml = datahtml.replace(/<h2>/gi, "**((&<h2>");
+$scope.paginasArticulo =  datahtml.split("**((&");
+
+
+
+  //$scope.paginasArticulo =  datahtml.split("<h2>");
   console.log(  $scope.paginasArticulo);
 
 
@@ -121,9 +128,52 @@ $scope.getPostById();
     }, 1000);
   };
 })
+.controller('buscarCtrl', ['$scope', '$timeout', '$ionicModal', '$ionicLoading', '$state', '$stateParams','ArticlesService',
+  function($scope, $timeout, $ionicModal, $ionicLoading, $state, $stateParams, ArticlesService) {
 
-.controller('PlaylistsCtrl', ['$scope', '$ionicModal', '$ionicLoading', '$state', '$stateParams','ArticlesService',
-  function($scope, $ionicModal, $ionicLoading, $state, $stateParams, ArticlesService) {
+
+
+    $scope.goArticle = function(idd,date) {
+   //    $scope.modal2.hide();
+$ionicLoading.show();
+//$scope.$apply();
+$state.go('app.article', {id:idd, fecha:date});
+console.log(idd + '-' + date);
+
+
+  
+
+
+    }
+
+    $scope.getArticleFind = function() {
+
+     /// var promise = ArticlesService.get();
+     var promisse = ArticlesService.getSPostF();
+      promisse.then(
+          function(detailsd){
+            console.log(detailsd);
+
+
+            $scope.articlesF = detailsd;
+           // $state.reload();
+           
+          },
+          function(reason){
+            alert('Failed: ' + reason);
+          }
+      );
+    };
+
+
+
+  $scope.getArticleFind();
+
+
+    
+}])
+.controller('PlaylistsCtrl', ['$scope', '$timeout', '$ionicModal', '$ionicLoading', '$state', '$stateParams','ArticlesService',
+  function($scope, $timeout, $ionicModal, $ionicLoading, $state, $stateParams, ArticlesService) {
 
 
 //console.log(  ArticlesService.getPosts().then(function(data){return 'ds'}));
@@ -197,11 +247,14 @@ $scope.disableTouch = function() {
           function(reason){
             alert('Failed: ' + reason);
           }
+
       );
     };
 
       $scope.getArticleList();
 $scope.getCategorias();
+
+
 
     $scope.abrirInfo = function() {
 $scope.modal.show();
@@ -214,13 +267,16 @@ $scope.modal.show();
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
+    //console.log(modal)
     $scope.modal = modal;
   });
+
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
+
 
 
 

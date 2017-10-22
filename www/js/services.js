@@ -134,6 +134,24 @@ var tags = [];
                 return deferred.promise;
             },
 
+             getSPostF: function (id) {
+
+                var deferred = $q.defer(),
+                    url = 'https://delfino.cr/wp-json/wp/v2/posts/?per_page=20';
+                  
+                $http.get(url).success(function(data, status) {
+  
+                  deferred.resolve(data);
+
+                }).error(function(data, status) {
+                    console.log('There has been an error')
+                    deferred.reject(data);
+                });
+
+                return deferred.promise;
+            },
+
+
              getSPost: function (id) {
 
                 var deferred = $q.defer(),

@@ -51,7 +51,8 @@ angular.module('animatedGrid.directives', [])
         	$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
 				if ($scope.animationFlag === false 
 					&& toState.name === 'app.article') {
-					event.preventDefault();
+					console.log(toState.name);
+					//event.preventDefault();
 				}
 			});
 

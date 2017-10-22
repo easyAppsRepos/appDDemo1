@@ -58,7 +58,15 @@ $ionicConfigProvider.backButton.text('');
       }
     }
   })
-
+.state('app.buscar', {
+    url: '/buscar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/buscar.html',
+         controller: 'buscarCtrl'
+      }
+    }
+  })
   .state('app.article', {
     url: '/article/:id/:fecha',
     views: {
